@@ -3,6 +3,9 @@
 Spatio Temporal Modelling of Scenes through Multi Relational GCN:
 Towards Accurate Vehicle Behaviour Classification." 
 ```
+For any queries mail : saisravan.m@research.iiit.ac.in (or)
+mahtab.sandhu@gmail.com
+
 ---------------------
 ### Base-line Implementation details(SVM based)
 -------------
@@ -31,7 +34,8 @@ We combine both lane-changes into a single class and compare our method with SVM
 
 The training of SVM is done on a total of 10837(vehicles only) nodes with 30% validation. The dimension of each feature vector is 3960.
 
-## Installation
+### Installation
+--------------
 ##### requirements
 ```
 dgl
@@ -53,7 +57,7 @@ cd temporal-MR-GCN
 python3 lstm_rgcn_test_apollo.py
 ```
 Graphs for all datasets can be downloaded from [graphs](https://drive.google.com/drive/folders/120UPpzhW0mgZUjKq30BskSdZHAg4Yt-Z?usp=sharing).<br />
-**NOTE** : Make sure to extract the corresponding graphs and place it in the same folder where you are running the code from.
+**NOTE** : Make sure to extract the corresponding graphs(lstm_graphs_apollo) and place it in the same folder where you are running the code from.
 
 For information on how graphs are stored in npz files, go through the README file in the same link.
 ## Testing on Indian/Kitti dataset 
@@ -63,8 +67,8 @@ python3 lstm_rgcn_test_ind_kitti.py indian
 for kitti,
 python3 lstm_rgcn_test_ind_kitti.py kitti
 ```
-**NOTE** : Make sure to extract the corresponding graphs and place it in the same folder where you are running the code from.
-
+**NOTE** : Make sure to extract the corresponding graphs (lstm_graphs_kitti for **kitti** and lstm_graphs_indian for **indian**) and place it in the same folder where you are running the code from.
+### RESULTS
 ---------
 0->Move forward<br />
 1->Moving towards us<br />
@@ -94,6 +98,7 @@ Since the number of cars showing overtake behaviour are less, we augmented and a
 | class accuracy| 99 | 92 | 99 |
 | class counts  | 324 | 229 | 2547 |
 
+
 ### Dataset
 -----------
 We selected 3 main datasets to perform the experiments.
@@ -102,3 +107,21 @@ We selected 3 main datasets to perform the experiments.
 3. Indian
 
 On apollo we have selected sequences from scene-parsing dataset and picked around 70 small sequences(each containing aroud 100 images) manually that include behaviours of our interest. Similarly on Kitti, we use tracking sequences 4,5,10 which are in line with our class requirement.
+
+### Attention Explanantion
+-----------
+Due to space constraint in the paper, we have defined attention as a module in the paper. Here, we give it's working and explanation.<br/>
+To weight the outputs from LSTM(which are ordered w.r.t time), we use attention as a weighted sum for predicting the output.<br/>
+
+Given output from LSTM as L<sub>g</sub>,
+we define a HEAD as triplet containing Query(Q),Key(K),Value(V). The query, Key and Values are learnable intermediate parameters. Q and K are used to find which values of input are similar/highly related and V is to weight them. Hence, the equation becomes : 
+
+![attention_eqn](https://drive.google.com/uc?export=view&id=1AsejV-js_mxJ3oJnoLqMDZwBGRBrgj0B)
+
+dk is the sacling factor(from paper). This is applied for all time-stamps.<br/> 
+As dimension of L<sub>g</sub> is N x T x d<sub>2</sub>, attention using Q,K,V on **each node** gives, T x d<sub>3</sub> output. **Attention applies the above equation for all time-stamps, hence the T x d<sub>3</sub> output**.<br/>
+If h heads are available, all heads are concatenated not across time but across d<sub>3</sub> dimension. Hence, output dimension remains same as T x d<sub>3</sub>, as we finally project to input dimension for output from attention.
+![mh eqn](https://drive.google.com/uc?export=view&id=1RGs2zFIPcZA6t3jTy0S07BM-c_6rG3jQ)
+
+where head<sub>i</sub> = Attention(Q,K<sub>i</sub>,V<sub>i</sub>).<br/>
+The final out put of attention is T x d<sub>3</sub> for **each node**.
