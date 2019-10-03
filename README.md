@@ -84,6 +84,7 @@ python3 lstm_rgcn_test_ind_kitti.py kitti
 | class counts(train)  | 2673 | 685 | 3574 |424  | 452 | 525  |
 | class accuracy(val)  | 85 | 89 | 94 | 84 | 86 | 72 |
 | class counts(val)  | 814 | 237 | 1415 | 162 | 130 | 73 |
+
 Since the number of cars showing overtake behaviour are less, we augmented and added few synthetic-graphs and augmented data to train data only for apollo. With a little more data, the model can clearly learn overtake too above 80%, as number of synthetic graphs added were too low 76.
 
 ##### Results on Kitti tested with weights trained on Apollo
