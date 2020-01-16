@@ -83,7 +83,7 @@ if __name__ == '__main__':
     class_acc = [0.0]*num_classes
     
     skip = True
-    Fusion = False
+    Fusion = True
     model = main_model(num_node_fts,h_dim1,num_classes,num_rels,h_dim2,h_dim3,h_dim4,h_dim5,dropout,n_bases,n_hidden_layers,layers_lstm,dropout_lstm,use_cuda=use_cuda,bidirectional=True,gated=True,skip=skip,Fusion=Fusion)
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001,weight_decay=1e-4)
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min',min_lr=0.00001,patience=2,verbose =True)
