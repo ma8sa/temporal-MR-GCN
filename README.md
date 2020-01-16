@@ -76,11 +76,11 @@ python3 lstm_rgcn_test_ind_kitti.py kitti
 3-> lane-change(L->R)<br />
 4-> lane-change(R->L)<br />
 5-> Overtake
-
+0.9577254  0.98978102 0.97789591 0.96933962 0.96902655 0.97714286]
 ##### Results on Apollo
 |  | 0 | 1 | 2 | 3 | 4 | 5 |
 | ------------- | ------------- | ------------ | ------------ | ------------ | ------------ | ------------ |
-| class accuracy(train)| 85 | 89 | 94 | 84 | 86 | 72 |  
+| class accuracy(train)| 95 | 98 | 97 | 96 | 96 | 97 |  
 | class counts(train)  | 2673 | 685 | 3574 |424  | 452 | 525  |
 | class accuracy(val)  | 85 | 89 | 94 | 84 | 86 | 72 |
 | class counts(val)  | 814 | 237 | 1415 | 162 | 130 | 73 |
