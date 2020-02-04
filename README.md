@@ -1,10 +1,11 @@
 # Temporal MR-GCN
 ```
-Towards Accurate Vehicle Behaviour Classification." 
+Towards Accurate Vehicle Behaviour Classification
 With Multi Relational Graph Convolutional Networks:
 ```
 For any queries mail : saisravan.m@research.iiit.ac.in (or)
 mahtab.sandhu@gmail.com
+
 
 ---------------------
 ### Base-line Implementation details(SVM based)
@@ -34,6 +35,20 @@ We combine both lane-changes into a single class and compare our method with SVM
 
 The training of SVM is done on a total of 10837(vehicles only) nodes with 30% validation. The dimension of each feature vector is 3960.
 
+### Dataset
+-----------
+We selected 3 main datasets to perform the experiments.
+1. [Apollo](http://apolloscape.auto/scene.html) 
+2. [Kitti](http://www.cvlibs.net/datasets/kitti/eval_tracking.php)
+3. Indian
+
+
+**Graphs for all datasets can be downloaded from [graphs](https://drive.google.com/drive/folders/120UPpzhW0mgZUjKq30BskSdZHAg4Yt-Z?usp=sharing).<br />
+For information on how each graph is stored as a npz file, go through the README file in the same link.**
+
+
+On apollo we have selected sequences from scene-parsing dataset and picked around 70 small sequences(each containing aroud 100 images) manually that include behaviours of our interest. Similarly on Kitti, we use tracking sequences 4,5,10 which are in line with our class requirement.
+
 ### Installation
 --------------
 ##### requirements
@@ -56,10 +71,9 @@ git clone https://github.com/ma8sa/temporal-MR-GCN.git
 cd temporal-MR-GCN
 python3 lstm_rgcn_test_apollo.py
 ```
-Graphs for all datasets can be downloaded from [graphs](https://drive.google.com/drive/folders/120UPpzhW0mgZUjKq30BskSdZHAg4Yt-Z?usp=sharing).<br />
-**NOTE** : Make sure to extract the corresponding graphs(lstm_graphs_apollo) and place it in the same folder where you are running the code from.
+**NOTE** : Make sure to extract the corresponding graphs(*lstm_graphs_apollo*) and place it in the same folder where you are running the code from.
 
-For information on how graphs are stored in npz files, go through the README file in the same link.
+
 ## Testing on Indian/Kitti dataset 
 ```
 for indian,
@@ -67,7 +81,7 @@ python3 lstm_rgcn_test_ind_kitti.py indian
 for kitti,
 python3 lstm_rgcn_test_ind_kitti.py kitti
 ```
-**NOTE** : Make sure to extract the corresponding graphs (lstm_graphs_kitti for **kitti** and lstm_graphs_indian for **indian**) and place it in the same folder where you are running the code from.
+**NOTE** : Make sure to extract the corresponding graphs (*lstm_graphs_kitti* for **kitti** and *lstm_graphs_indian* for **indian**) and place it in the same folder where you are running the code from.
 ### RESULTS
 ---------
 0->Move forward<br />
@@ -100,14 +114,7 @@ Since the number of cars showing overtake behaviour are less, we augmented and a
 | class counts  | 324 | 229 | 2547 |
 
 
-### Dataset
------------
-We selected 3 main datasets to perform the experiments.
-1. [Apollo](http://apolloscape.auto/scene.html) 
-2. [Kitti](http://www.cvlibs.net/datasets/kitti/eval_tracking.php)
-3. Indian
 
-On apollo we have selected sequences from scene-parsing dataset and picked around 70 small sequences(each containing aroud 100 images) manually that include behaviours of our interest. Similarly on Kitti, we use tracking sequences 4,5,10 which are in line with our class requirement.
 <!---
 ### Attention Explanantion
 -----------
