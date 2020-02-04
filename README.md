@@ -51,7 +51,7 @@ On apollo we have selected sequences from scene-parsing dataset and picked aroun
 
 ### Installation
 --------------
-##### requirements
+##### Requirements
 ```
 dgl
 pytorch == 1.2.0
@@ -59,12 +59,14 @@ pandas
 numpy
 tqdm
 ```
-dgl can be installed from the official website, [dgl](https://www.dgl.ai/pages/start.html) based on cuda support.<br />
+<!---dgl with  cuda support can be installed from the official website, [dgl](https://www.dgl.ai/pages/start.html) .<br />
+--->
+
+#### Installing without GPU:
 ```
-Installing without GPU:
-pip install dgl
+pip3 install requirements.txt
 ```
-## Testing on apollo dataset 
+## Testing and Training on apollo dataset 
 ```
 git clone https://github.com/ma8sa/temporal-MR-GCN.git
 cd temporal-MR-GCN
@@ -73,7 +75,7 @@ python3 lstm_rgcn_test_apollo.py
 **NOTE** : Make sure to extract the corresponding graphs(*lstm_graphs_apollo*) and place it in the same folder where you are running the code from.
 
 
-## Testing on Indian/Kitti dataset 
+## Testing on Indian/Kitti dataset (Transfer Learning)
 ```
 for indian,
 python3 lstm_rgcn_test_ind_kitti.py indian
