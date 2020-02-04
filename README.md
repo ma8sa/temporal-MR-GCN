@@ -28,6 +28,7 @@ The training of SVM is done on a total of 10837(vehicles only) nodes with 30% va
 --->
 
 Apart from comparisons in the paper, we use Structural-RNN, a LSTM based graph network. Since the tasks in their paper confine only to driver-anticipation, we use one of their methods similar to our task. Specifically, we use the **detection** method of **activity-anticipation** mentioned in the paper due to the similarity in the architecture and task . We use *Vehicles* as *Humans* and *Lane Markings* as *Objects* in their architecture for our purpose. Similar to the Human-Object, Human-Human and Object-Object interactions, we observe the Vehicle-Lane, Vehicle-Vehicle and Lane-Lane interactions for all time-steps. We give features similar to the baselines in the paper.
+
 | Method  | St-RNN |	Ours |
 | ------------- | ------------- | ------------ |
 | Moving away  | 76  |	85.3 |
