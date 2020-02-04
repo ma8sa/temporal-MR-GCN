@@ -22,20 +22,21 @@ Algorithm for feature vector creation:<br/>
 ![SVM_algo](https://drive.google.com/uc?export=view&id=1TTSC9qqZeeNCiqz2un7JYfwqAAHS-_RN)
 >
 We combine both lane-changes into a single class and compare our method with SVM.(on APOLLO SCAPE dataset)<br />
+
+The training of SVM is done on a total of 10837(vehicles only) nodes with 30% validation. The dimension of each feature vector is 3960.
 >
 --->
 
-| Method  | SVM |	Ours |
+Apart from comparisons in the paper, we use Structural-RNN, a LSTM based graph network. Since the tasks in their paper confine only to driver-anticipation, we use one of their methods similar to our task. Specifically, we use the **detection** method of **activity-anticipation** mentioned in the paper due to the similarity in the architecture and task . We use *Vehicles* as *Humans* and *Lane Markings* as *Objects* in their architecture for our purpose. Similar to the Human-Object, Human-Human and Object-Object interactions, we observe the Vehicle-Lane, Vehicle-Vehicle and Lane-Lane interactions for all time-steps. We give features similar to the baselines in the paper.
+| Method  | St-RNN |	Ours |
 | ------------- | ------------- | ------------ |
-| Moving away  | 52.1  |	85.3 |
-| moving towards us  | 54.3  |	89.5 |
-| Parked  | 54.3  |	94.8 |
-| lane-change(L->R)  | -  |	84.1 |
-| lane-change(R->L)  | -  |	86.4 |
-| lane-change(overall)  | 52.8  | 84.8 |
-| Overtake  | 57.2  | 72.3	 |
-
-The training of SVM is done on a total of 10837(vehicles only) nodes with 30% validation. The dimension of each feature vector is 3960.
+| Moving away  | 76  |	85.3 |
+| moving towards us  | 51 |	89.5 |
+| Parked  | 83  |	94.8 |
+| lane-change(L->R)  | 52  |	84.1 |
+| lane-change(R->L)  | 57  |	86.4 |
+<!-- | lane-change(overall)  | 52.8  | 84.8 |-->
+| Overtake  | 63  | 72.3	 |
 
 ### Dataset
 -----------
@@ -61,12 +62,14 @@ pandas
 numpy
 tqdm
 ```
-<!---dgl with  cuda support can be installed from the official website, [dgl](https://www.dgl.ai/pages/start.html) .<br /> --->
 
 #### Installing without GPU:
 ```
 pip3 install requirements.txt
 ```
+To install and use GPU for dgl, cuda support can be installed from their official website, [dgl](https://www.dgl.ai/pages/start.html) .<br /> 
+And set *use_cuda = 1* in training/testing codes.
+
 ## Testing and Training on apollo dataset 
 ```
 git clone https://github.com/ma8sa/temporal-MR-GCN.git
