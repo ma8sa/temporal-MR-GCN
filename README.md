@@ -1,7 +1,7 @@
 # Temporal MR-GCN
 ```
-Spatio Temporal Modelling of Scenes through Multi Relational GCN:
 Towards Accurate Vehicle Behaviour Classification." 
+With Multi Relational Graph Convolutional Networks:
 ```
 For any queries mail : saisravan.m@research.iiit.ac.in (or)
 mahtab.sandhu@gmail.com
@@ -108,21 +108,22 @@ We selected 3 main datasets to perform the experiments.
 3. Indian
 
 On apollo we have selected sequences from scene-parsing dataset and picked around 70 small sequences(each containing aroud 100 images) manually that include behaviours of our interest. Similarly on Kitti, we use tracking sequences 4,5,10 which are in line with our class requirement.
-
+<!---
 ### Attention Explanantion
 -----------
 Due to space constraint in the paper, we have defined attention as a module in the paper. Here, we give it's working and explanation.<br/>
 To weight the outputs from LSTM(which are ordered w.r.t time), we use attention as a weighted sum for predicting the output.<br/>
-
+>
 Given output from LSTM as L<sub>g</sub>,
 we define a HEAD as triplet containing Query(Q),Key(K),Value(V). The query, Key and Values are learnable intermediate parameters. Q and K are used to find which values of input are similar/highly related and V is to weight them. Hence, the equation becomes : 
-
+>
 ![attention_eqn](https://drive.google.com/uc?export=view&id=1AsejV-js_mxJ3oJnoLqMDZwBGRBrgj0B)
-
+>
 dk is the sacling factor(from paper). This is applied for all time-stamps.<br/> 
 As dimension of L<sub>g</sub> is N x T x d<sub>2</sub>, attention using Q,K,V on **each node** gives, T x d<sub>3</sub> output. **Attention applies the above equation for all time-stamps, hence the T x d<sub>3</sub> output**.<br/>
 If h heads are available, all heads are concatenated not across time but across d<sub>3</sub> dimension. Hence, output dimension remains same as T x d<sub>3</sub>, as we finally project to input dimension for output from attention.
 ![mh eqn](https://drive.google.com/uc?export=view&id=1RGs2zFIPcZA6t3jTy0S07BM-c_6rG3jQ)
-
+>
 where head<sub>i</sub> = Attention(Q,K<sub>i</sub>,V<sub>i</sub>).<br/>
 The final out put of attention is T x d<sub>3</sub> for **each node**.
+--->
