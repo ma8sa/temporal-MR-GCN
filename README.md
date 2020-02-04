@@ -57,7 +57,6 @@ dgl
 pytorch == 1.2.0
 pandas
 numpy
-matplotlib
 tqdm
 ```
 dgl can be installed from the official website, [dgl](https://www.dgl.ai/pages/start.html) based on cuda support.<br />
