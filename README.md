@@ -36,8 +36,9 @@ Apart from comparisons in the paper, we use Structural-RNN, a LSTM based graph n
 | Parked  | 83  |	94.8 |
 | lane-change(L->R)  | 52  |	84.1 |
 | lane-change(R->L)  | 57  |	86.4 |
-<!-- | lane-change(overall)  | 52.8  | 84.8 |-->
 | Overtake  | 63  | 72.3	 |
+
+<!-- | lane-change(overall)  | 52.8  | 84.8 |-->
 
 ### Dataset
 -----------
