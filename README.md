@@ -7,21 +7,23 @@ For any queries mail : saisravan.m@research.iiit.ac.in (or)
 mahtab.sandhu@gmail.com
 
 
+<!---
 ---------------------
 ### Base-line Implementation details(SVM based)
 -------------
 We propose an SVM based baseline with relational features and compare our method with it. We give the 3D locations of objects obtained from the Bird's eye View(mentioned in the paper) as a direct input. For each object in the video, we create a feature vector consisting of its distance and angle with all other nodes for T time stamps. The distance is a simple Euclidean distance. To account for the feature of object(lane-markings/Vehicles), we create a 2 dimensional one-hot vector{1,0} representing Vehicles and {0,1} representing static objects.
 To create a feature vector for i-th object, we find distances and angles with all other nodes for T timestamps in the scene and concatenate them. 
-
+>
 Hence, The dimension for every object in the scene would include 2 dimensions from distance and angle with every other node for T time-stamps, hence (n-1) * 2 * T, and 2 dimensional vector input for encoding feature(lane/Vehicle). Hence , the total dimension for each node becomes:<br />
 (n-1) * (2T+2).<br />
 Here, as n changes with every graph,we pad zeros at the end to maintain a constant length for feature vector.
 Algorithm for feature vector creation:<br/>
-
+>
 ![SVM_algo](https://drive.google.com/uc?export=view&id=1TTSC9qqZeeNCiqz2un7JYfwqAAHS-_RN)
-
+>
 We combine both lane-changes into a single class and compare our method with SVM.(on APOLLO SCAPE dataset)<br />
-
+>
+--->
 
 | Method  | SVM |	Ours |
 | ------------- | ------------- | ------------ |
@@ -59,8 +61,7 @@ pandas
 numpy
 tqdm
 ```
-<!---dgl with  cuda support can be installed from the official website, [dgl](https://www.dgl.ai/pages/start.html) .<br />
---->
+<!---dgl with  cuda support can be installed from the official website, [dgl](https://www.dgl.ai/pages/start.html) .<br /> --->
 
 #### Installing without GPU:
 ```
