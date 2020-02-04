@@ -1,7 +1,7 @@
 # Temporal MR-GCN
 ```
 Towards Accurate Vehicle Behaviour Classification
-With Multi Relational Graph Convolutional Networks:
+With Multi Relational Graph Convolutional Networks
 ```
 For any queries mail : saisravan.m@research.iiit.ac.in (or)
 mahtab.sandhu@gmail.com
