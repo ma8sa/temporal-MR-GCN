@@ -126,11 +126,10 @@ Since the number of cars showing overtake behaviour are less, we augmented and a
 | ------------- | ------------- | ------------ | ------------ |
 | class accuracy| 99 | 92 | 99 |
 | class counts  | 324 | 229 | 2547 |
-<p>
-![image](https://drive.google.com/uc?export=view&id=1aLIeNGMiMnE1K-ACX4IslGyocs8vjqo0)
-</p>
+
 <!---
 ### Attention Explanantion
+![image](https://drive.google.com/uc?export=view&id=1aLIeNGMiMnE1K-ACX4IslGyocs8vjqo0)
 -----------
 Due to space constraint in the paper, we have defined attention as a module in the paper. Here, we give it's working and explanation.<br/>
 To weight the outputs from LSTM(which are ordered w.r.t time), we use attention as a weighted sum for predicting the output.<br/>
