@@ -80,10 +80,14 @@ And set *use_cuda = 1* in training/testing codes.
 ```
 git clone https://github.com/ma8sa/temporal-MR-GCN.git
 cd temporal-MR-GCN
+--testing
 python3 lstm_rgcn_test_apollo.py
+--training
+python3 lstm_rgcn_train_apollo.py
 ```
 **NOTE** : Make sure to extract the corresponding graphs(*lstm_graphs_apollo*) and place it in the same folder where you are running the code from.
 
+In training, *lstm_rgcn_train_apollo* has all the parameters in main function to tune. *main_model.py* contains the complete model. *rgcn_layer.py* contains the dgl format of *MR-GCN*. *graphs_preproc_apollo.py* conatains all the data preprocessing methods used. 
 
 ## Testing on Indian/Kitti dataset (Transfer Learning)
 ```
