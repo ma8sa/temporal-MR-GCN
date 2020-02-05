@@ -66,7 +66,7 @@ class main_model(nn.Module):
             self.norm2.cuda() 
             self.transformer.cuda()
 
-    def forward_rgcn(self,trainsets,time_stamps,batch_size,j,skipped,skipped_val,flag):
+    def forward_rgcn(self,trainsets,time_stamps,batch_size,j,whts,skipped,skipped_val,flag):
         k=j
         labels2 = []
         logits5 = []
@@ -119,5 +119,6 @@ class main_model(nn.Module):
         logits6 = torch.stack(logits5,dim=0)
         labels3 = torch.stack(labels2,dim=0)
         
-        loss2 = F.cross_entropy(logits6,labels3)
+        loss_func = nn.CrossEntropyLoss(weight=whts)
+        loss2 = loss_func(logits6,labels3)
         return [loss2,logits6,labels3,nodefts,skipped,skipped_val]
