@@ -22,7 +22,7 @@ import tqdm
 
 from graphs_preproc import *
 from rgcn_layer import *
-from main_model import *
+from main_model_train import *
 
 seed = 0
 random.seed(seed)
