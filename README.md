@@ -127,8 +127,7 @@ Since the number of cars showing overtake behaviour are less, we augmented and a
 | class accuracy| 99 | 92 | 99 |
 | class counts  | 324 | 229 | 2547 |
 
-![image](https://drive.google.com/uc?export=view&id=1aLIeNGMiMnE1K-ACX4IslGyocs8vjqo0)
-
+<img src="cut_video.gif?raw=true" width="200px">
 
 <!---
 ### Attention Explanantion
