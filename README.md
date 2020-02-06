@@ -3,6 +3,7 @@
 Towards Accurate Vehicle Behaviour Classification
 With Multi Relational Graph Convolutional Networks
 ```
+Link to our paper on arxiv : [https://arxiv.org/abs/2002.00786](https://arxiv.org/abs/2002.00786)<br>
 For any queries mail : saisravan.m@research.iiit.ac.in (or)
 mahtab.sandhu@gmail.com
 
@@ -27,8 +28,12 @@ The training of SVM is done on a total of 10837(vehicles only) nodes with 30% va
 >
 --->
 
+Our method detects and classifies objects of interest (vehicles) in a video scene into 6 classes moving away, moving towards us, parked, lane change(L->R), lane change(R->L), overtake. Note that our method is not based on classifying the ego-vehicle.
+
+
+
 ---------------------
-### Base-line Implementation details(SVM based)
+### Base-line Implementation details
 -------------
 
 Apart from comparisons in the paper, we compare with Structural-RNN, a LSTM based graph network. Since the tasks in their paper confine only to driver-anticipation, we use one of their methods similar to our task. Specifically, we use the **detection** method of **activity-anticipation** mentioned in the paper due to the similarity in the architecture and task . We use *Vehicles* as *Humans* and *Lane Markings* as *Objects* in their architecture for our purpose. Similar to the Human-Object, Human-Human and Object-Object interactions, we observe the Vehicle-Lane, Vehicle-Vehicle and Lane-Lane interactions for all time-steps. We give features similar to the baselines in the paper.
