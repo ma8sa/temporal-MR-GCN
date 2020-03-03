@@ -132,9 +132,10 @@ Since the number of cars showing overtake behaviour are less, we augmented and a
 | class accuracy| 99 | 92 | 99 |
 | class counts  | 324 | 229 | 2547 |
 
-<img src="cut_video.gif?raw=true">
 
 <!---
+<img src="cut_video.gif?raw=true">
+>
 ### Attention Explanantion
 -----------
 Due to space constraint in the paper, we have defined attention as a module in the paper. Here, we give it's working and explanation.<br/>
