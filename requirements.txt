@@ -6,7 +6,7 @@ pandas==0.24.2
 pkg-resources==0.0.0
 python-dateutil==2.8.1
 pytz==2019.3
-scipy==1.4.1
+scipy==1.10.0
 six==1.14.0
 torch==1.2.0
 tqdm==4.42.1
